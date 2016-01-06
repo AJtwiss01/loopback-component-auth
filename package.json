@@ -1,0 +1,36 @@
+{
+  "name": "loopback-component-passport-custom-schemes",
+  "version": "0.0.0",
+  "description": "Extends loopback-component-passport to support custom auth schemes (i.e. other than the supported \"ldap\", \"local\", \"oauth\", \"oauth1\", \"oauth 1.0\", \"openid\", \"openid connect\" and \"oauth 2.0\")",
+  "homepage": "",
+  "author": {
+    "name": "Benjamin Kroeger",
+    "email": "benjamin.kroeger@gmail.com",
+    "url": ""
+  },
+  "files": [
+    "lib"
+  ],
+  "main": "lib/index.js",
+  "keywords": [
+    "loopback",
+    "passport",
+    "custom",
+    "shemes"
+  ],
+  "repository": "benkroeger/loopback-component-passport-custom-schemes",
+  "devDependencies": {
+    "gulp": "^3.6.0",
+    "gulp-eslint": "^1.0.0",
+    "gulp-exclude-gitignore": "^1.0.0",
+    "gulp-istanbul": "^0.9.0",
+    "gulp-mocha": "^2.0.0",
+    "gulp-plumber": "^1.0.0",
+    "gulp-nsp": "^2.1.0"
+  },
+  "scripts": {
+    "prepublish": "gulp prepublish",
+    "test": "gulp"
+  },
+  "license": "Apache-2.0"
+}
