@@ -1,5 +1,5 @@
 {
-  "name": "loopback-component-passport-custom-schemes",
+  "name": "oniyi-loopback-passport-custom-schemes",
   "version": "0.0.0",
   "description": "Extends loopback-component-passport to support custom auth schemes (i.e. other than the supported \"ldap\", \"local\", \"oauth\", \"oauth1\", \"oauth 1.0\", \"openid\", \"openid connect\" and \"oauth 2.0\")",
   "homepage": "",
@@ -13,12 +13,13 @@
   ],
   "main": "lib/index.js",
   "keywords": [
+    "oniyi",
     "loopback",
     "passport",
     "custom",
     "shemes"
   ],
-  "repository": "benkroeger/loopback-component-passport-custom-schemes",
+  "repository": "benkroeger/oniyi-loopback-passport-custom-schemes",
   "devDependencies": {
     "gulp": "^3.6.0",
     "gulp-eslint": "^1.0.0",
