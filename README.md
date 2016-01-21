@@ -1,4 +1,4 @@
-# oniyi-loopback-passport-custom-schemes [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
+# oniyi-loopback-passport-custom-schemes [![NPM version][npm-image]][npm-url] [![Dependency Status][daviddm-image]][daviddm-url]
 > Extends loopback-component-passport to support custom auth schemes (i.e. other than the supported &#34;ldap&#34;, &#34;local&#34;, &#34;oauth&#34;, &#34;oauth1&#34;, &#34;oauth 1.0&#34;, &#34;openid&#34;, &#34;openid connect&#34; and &#34;oauth 2.0&#34;)
 
 ## Installation
@@ -8,12 +8,28 @@ $ npm install --save oniyi-loopback-passport-custom-schemes
 ```
 
 ## Usage
+This package is still under development and not ready to be used yet. Overall target is to export a
+`boot` function that will take you `app` object as well as a path to your `appRootFolder` to
+dynamically read a `providers.json` file with all your authentication providers. Those providers can
+then be either of the [loopback third-party providers](https://docs.strongloop.com/pages/releaseview.action?pageId=3836277#Third-partylogin(Passport)-Configuringthird-partyproviders)
+or a custom type with your own `verify` function according to the [passport documentation](http://passportjs.org/docs)
+
+See `server/authentication` for an example
 
 ```js
-var loopbackComponentPassportCustomSchemes = require('oniyi-loopback-passport-custom-schemes');
-
-loopbackComponentPassportCustomSchemes('Rainbow');
+{
+  "w3-connections": {
+    "provider": "w3-connections",
+    "authScheme": "ibm-connections-basic",
+    "module": "passport-ibm-connections-basic",
+    "json": true,
+    "session": false,
+    "authHostname": "w3-connections.ibm.com",
+    "openSocial": "/common"
+  }
+}
 ```
+
 ## License
 
 Apache-2.0 © [Benjamin Kroeger]()
