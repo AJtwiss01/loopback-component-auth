@@ -2,7 +2,7 @@
 
 const _ = require('lodash');
 
-exports.makeVerify = function makeVerify(options, userIdentityModel, loginCallback) {
+exports.makeVerify = function makeVerify(options, userIdentityModel, makeLoginCallback) {
   return function verify(req, profile, setCookieHeader, completeRequestURI, done) {
     if (!profile) {
       return done(null);
@@ -12,6 +12,9 @@ exports.makeVerify = function makeVerify(options, userIdentityModel, loginCallba
 
     const optionsForCreation = _.defaults({}, options, {
       autoLogin: true,
+      emailOptional: true,
+      // createAccessToken: function (user, callback){},
+      // profileToUser: function (provider, profile, options){}
     });
 
     userIdentityModel.login(
@@ -19,6 +22,6 @@ exports.makeVerify = function makeVerify(options, userIdentityModel, loginCallba
       options.authScheme,
       profile, {},
       optionsForCreation,
-      loginCallback(req, done));
+      makeLoginCallback(done));
   };
 };
