@@ -17,30 +17,31 @@
     "loopback",
     "passport",
     "custom",
-    "shemes"
+    "schemes"
   ],
   "repository": "benkroeger/oniyi-loopback-passport-custom-schemes",
   "devDependencies": {
-    "eslint": "1.10.3",
-    "eslint-config-oniyi": "1.0.1",
-    "gulp": "^3.9.0",
+    "eslint": "^1.10.3",
+    "eslint-config-oniyi": "^1.1.1",
+    "gulp": "^3.9.1",
     "gulp-eslint": "^1.1.1",
     "gulp-exclude-gitignore": "^1.0.0",
     "gulp-istanbul": "^0.10.3",
     "gulp-mocha": "^2.2.0",
     "gulp-nsp": "^2.3.0",
-    "gulp-plumber": "^1.0.1"
+    "gulp-plumber": "^1.1.0"
   },
   "scripts": {
-    "prepublish": "gulp prepublish",
     "test": "gulp"
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "lodash": "4.0.0",
-    "oniyi-logger": "0.3.0"
+    "lodash": "^4.3.0",
+    "loopback-component-passport": "^2.0.0",
+    "oniyi-logger": "^0.3.1",
+    "passport": "^0.3.2"
   },
   "engines": {
-    "node": "^4.2.4"
+    "node": "^4.3.0"
   }
 }
