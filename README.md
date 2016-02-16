@@ -30,6 +30,61 @@ See `server/authentication` for an example
 }
 ```
 
+## Noteworthy
+sessions (including passport session middleware) are disabled per default.
+Use option `enableSessionSupport` on the boot function to enable it - then set the 
+`session` option accordingly on your providers
+
+will merge `js`and `json` files starting with name  `providers` in `${appRootDir}/authentication`
+iteratively. File name schema is **providers.[environment].(json|js)**.  
+`environment` is optional. Possible values are anything you can set in `process.env.NODE_ENV`.
+For file name resolution, `process.env.NODE_ENV` will be transformed to lower-case.  
+One special environment is `local`. It will always be loaded **last**.  
+It is okay to provide the same file name with different extensions. `json` will always be loaded before
+`js`, meaning `js` **will overwrite** `json`
+
+Sample load order:
+1. providers.json
+2. providers.js
+3. providers.development.json
+4. providers.development.js
+5. providers.local.json
+6. providers.local.js
+
+## options for boot script
+- app
+- appRootDir (defaults to `process.cwd()`)
+- enableSessionSupport
+- models
+
+## Provideroptions
+- disabled (boolean) - default: false; when set to `true`, provider will not be registered
+- link (boolean)
+- module
+- strategy (string) - default: "Strategy"; name of the module's exported Property to be used as Passport Strategy
+
+- authPath (string) - default: `/${(link ? 'link' : 'auth')}/${name}`; path to register authenticate or authorize controller
+- authHTTPMethod (string) - default "get"; possible values: "get", "post"; method to register authenticate or authorize controller
+- authMiddleware (function)
+
+- callbackPath
+- callbackHTTPMethod
+- callbackMiddleware
+
+- successRedirect
+- failureRedirect
+- makeLoginCallback (function) - receives single argument of type `function` (the "done" handler from passport's verify function).
+Must return function that takes (err, user, identity, token) as arguments and finally callse done(err, user, authInfo) according to the passport documentation.
+Purpose of the returned function is to serve as callback for UserIdentityModel.login(), which is documented [here](https://apidocs.strongloop.com/loopback-component-passport/#useridentity-login)
+- passReqToCallback
+- domain
+- json
+- scope
+- session
+- failureFlash
+- authInfo
+
+
 ## License
 
 Apache-2.0 © [Benjamin Kroeger]()
