@@ -1,0 +1,8 @@
+{
+  "foo-provider": {
+    "providers.local.json": "modified by local.json"
+  },
+  "bar-provider": {
+    "providers.local.json": "modified by local.json"
+  }
+}

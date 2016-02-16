@@ -1,0 +1,8 @@
+{
+  "foo-provider": {
+    "providers.development.json": "modified by development.json"
+  },
+  "bar-provider": {
+    "providers.development.json": "modified by development.json"
+  }
+}

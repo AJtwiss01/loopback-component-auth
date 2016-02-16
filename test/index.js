@@ -1,10 +1,10 @@
 'use strict';
 
-var assert = require('assert');
-var loopbackComponentPassportCustomSchemes = require('../lib');
+const assert = require('assert');
+const loopbackComponentPassportCustomSchemes = require('../lib');
 
-describe('loopback-component-passport-custom-schemes', function () {
-  it('should have unit test!', function () {
+describe('loopback-component-passport-custom-schemes', () => {
+  it('should have unit test!', () => {
     assert(false, 'we expected this package author to add actual unit tests.');
   });
 });
