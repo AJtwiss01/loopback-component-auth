@@ -19,7 +19,6 @@ See `server/authentication` for an example
 ```js
 {
   "w3-connections": {
-    "provider": "w3-connections",
     "authScheme": "ibm-connections-basic",
     "module": "passport-ibm-connections-basic",
     "json": true,
@@ -74,8 +73,10 @@ Sample load order:
 - successRedirect
 - failureRedirect
 - makeLoginCallback (function) - receives single argument of type `function` (the "done" handler from passport's verify function).
-Must return function that takes (err, user, identity, token) as arguments and finally callse done(err, user, authInfo) according to the passport documentation.
-Purpose of the returned function is to serve as callback for UserIdentityModel.login(), which is documented [here](https://apidocs.strongloop.com/loopback-component-passport/#useridentity-login)
+Must return function that takes (err, user, identity, token) as arguments and finally calls
+done(err, user, authInfo) according to the passport documentation.
+Purpose of the returned function is to serve as callback for UserIdentityModel.login(),
+which is documented [here](https://apidocs.strongloop.com/loopback-component-passport/#useridentity-login)
 - passReqToCallback
 - domain
 - json
