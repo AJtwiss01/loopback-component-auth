@@ -1,13 +1,10 @@
-# oniyi-loopback-passport-custom-schemes [![NPM version][npm-image]][npm-url] [![Dependency Status][daviddm-image]][daviddm-url]
-
-# DEPRECATED: For the sake of consistent naming, this module has been renamed to [loopback-component-auth](https://github.com/benkroeger/loopback-component-auth)
-
-> Extends loopback-component-passport to support custom auth schemes (i.e. other than the supported 'ldap', 'local', 'oauth', 'oauth1', 'oauth 1.0', 'openid', 'openid connect' and 'oauth 2.0')
+# loopback-component-auth [![NPM version][npm-image]][npm-url] [![Dependency Status][daviddm-image]][daviddm-url]
+> Extends loopback-component-passport to support custom auth schemes (i.e. other than the supported &#34;ldap&#34;, &#34;local&#34;, &#34;oauth&#34;, &#34;oauth1&#34;, &#34;oauth 1.0&#34;, &#34;openid&#34;, &#34;openid connect&#34; and &#34;oauth 2.0&#34;)
 
 ## Installation
 
 ```sh
-$ npm install --save oniyi-loopback-passport-custom-schemes
+$ npm install --save loopback-component-auth
 ```
 
 ## Usage
@@ -94,9 +91,9 @@ which is documented [here](https://apidocs.strongloop.com/loopback-component-pas
 Apache-2.0 © [Benjamin Kroeger]()
 
 
-[npm-image]: https://badge.fury.io/js/oniyi-loopback-passport-custom-schemes.svg
-[npm-url]: https://npmjs.org/package/oniyi-loopback-passport-custom-schemes
-[travis-image]: https://travis-ci.org/benkroeger/oniyi-loopback-passport-custom-schemes.svg?branch=master
-[travis-url]: https://travis-ci.org/benkroeger/oniyi-loopback-passport-custom-schemes
-[daviddm-image]: https://david-dm.org/benkroeger/oniyi-loopback-passport-custom-schemes.svg?theme=shields.io
-[daviddm-url]: https://david-dm.org/benkroeger/oniyi-loopback-passport-custom-schemes
+[npm-image]: https://badge.fury.io/js/loopback-component-auth.svg
+[npm-url]: https://npmjs.org/package/loopback-component-auth
+[travis-image]: https://travis-ci.org/benkroeger/loopback-component-auth.svg?branch=master
+[travis-url]: https://travis-ci.org/benkroeger/loopback-component-auth
+[daviddm-image]: https://david-dm.org/benkroeger/loopback-component-auth.svg?theme=shields.io
+[daviddm-url]: https://david-dm.org/benkroeger/loopback-component-auth
