@@ -1,5 +1,8 @@
 # oniyi-loopback-passport-custom-schemes [![NPM version][npm-image]][npm-url] [![Dependency Status][daviddm-image]][daviddm-url]
-> Extends loopback-component-passport to support custom auth schemes (i.e. other than the supported &#34;ldap&#34;, &#34;local&#34;, &#34;oauth&#34;, &#34;oauth1&#34;, &#34;oauth 1.0&#34;, &#34;openid&#34;, &#34;openid connect&#34; and &#34;oauth 2.0&#34;)
+
+# DEPRECATED: For the sake of consistent naming, this module has been renamed to [loopback-component-auth](https://github.com/benkroeger/loopback-component-auth)
+
+> Extends loopback-component-passport to support custom auth schemes (i.e. other than the supported 'ldap', 'local', 'oauth', 'oauth1', 'oauth 1.0', 'openid', 'openid connect' and 'oauth 2.0')
 
 ## Installation
 
