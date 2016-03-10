@@ -1,5 +1,5 @@
 # loopback-component-auth [![NPM version][npm-image]][npm-url] [![Dependency Status][daviddm-image]][daviddm-url]
-> Extends loopback-component-passport to support custom auth schemes (i.e. other than the supported &#34;ldap&#34;, &#34;local&#34;, &#34;oauth&#34;, &#34;oauth1&#34;, &#34;oauth 1.0&#34;, &#34;openid&#34;, &#34;openid connect&#34; and &#34;oauth 2.0&#34;)
+> Extends loopback-component-passport to support custom auth schemes (i.e. other than the supported 'ldap', 'local', 'oauth', 'oauth1', 'oauth 1.0', 'openid', 'openid connect' and 'oauth 2.0')
 
 ## Installation
 
@@ -50,11 +50,15 @@ Sample load order:
 5. providers.local.json
 6. providers.local.js
 
-## options for boot script
+## component arguments
 - app
-- appRootDir (defaults to `process.cwd()`)
-- enableSessionSupport
-- models
+- options
+- options.appRootDir (defaults to `process.cwd()`)
+- options.enableSessionSupport (boolean)
+- options.models.userModel (String | Model)
+- options.models.userIdentityModel(String | Model)
+- options.models.userCredentialModel(String | Model)
+- options.models.accessTokenModel(String | Model)
 
 ## Provideroptions
 - disabled (boolean) - default: false; when set to `true`, provider will not be registered
