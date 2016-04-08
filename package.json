@@ -23,7 +23,7 @@
   "dependencies": {
     "lodash": "^4.6.1",
     "loopback-component-passport": "^2.0.0",
-    "oniyi-logger": "^0.4.0",
+    "oniyi-logger": "^0.4.2",
     "oniyi-config": "^0.0.1",
     "passport": "^0.3.2"
   },
@@ -32,14 +32,14 @@
     "cookie-parser": "^1.4.1"
   },
   "devDependencies": {
-    "eslint": "^1.10.3",
-    "eslint-config-oniyi": "^1.1.2",
+    "eslint": "^2.4.0",
+    "eslint-config-oniyi": "^2.0.2",
     "gulp": "^3.9.1",
-    "gulp-eslint": "^1.1.1",
+    "gulp-eslint": "^2.0.0",
     "gulp-exclude-gitignore": "^1.0.0",
     "gulp-istanbul": "^0.10.3",
     "gulp-mocha": "^2.2.0",
-    "gulp-nsp": "^2.3.0",
+    "gulp-nsp": "^2.3.1",
     "gulp-plumber": "^1.1.0"
   },
   "scripts": {
