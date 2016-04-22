@@ -21,7 +21,7 @@
   ],
   "repository": "benkroeger/loopback-component-auth",
   "dependencies": {
-    "lodash": "^4.9.0",
+    "lodash": "^4.10.0",
     "loopback-component-passport": "^2.1.0",
     "oniyi-logger": "^0.4.2",
     "oniyi-config": "^0.0.1",
