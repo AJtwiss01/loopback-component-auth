@@ -66,13 +66,13 @@ Sample load order:
 - module
 - strategy (string) - default: "Strategy"; name of the module's exported Property to be used as Passport Strategy
 
-- authPath (string) - default: `/${(link ? 'link' : 'auth')}/${name}`; path to register authenticate or authorize controller
+- authPath (string) - default: `${contextRoot}/${name}/${isLinkProvider ? 'link' : 'login'}`; path to register authenticate or authorize controller
 - authHTTPMethod (string) - default "get"; possible values: "get", "post"; method to register authenticate or authorize controller
 - authBodyParser (string) - required when `authHTTPMethod === 'POST'`, must be one the parsers provided by `body-parser` module
 - authBodyParserOptions (object) - optional; passed to `bodyParser['authBodyParser'](authBodyParserOptions)`
 - authMiddleware (function)
 
-- callbackPath
+- callbackPath (string) - default: `${contextRoot}/${name}/${isLinkProvider ? 'link' : 'login'}/callback`;
 - callbackHTTPMethod
 - callbackBodyParser (string) - required when `callbackHTTPMethod === 'POST'`, must be one the parsers provided by `body-parser` module
 - callbackBodyParserOptions (object) - optional; passed to `bodyParser['callbackBodyParser'](callbackBodyParserOptions)`
