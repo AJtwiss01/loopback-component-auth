@@ -1,6 +1,6 @@
 {
   "name": "loopback-component-auth",
-  "version": "0.2.3",
+  "version": "0.3.0",
   "description": "Extends loopback-component-passport to support custom auth schemes (i.e. other than the supported 'ldap', 'local', 'oauth', 'oauth1', 'oauth 1.0', 'openid', 'openid connect' and 'oauth 2.0')",
   "homepage": "",
   "author": {
@@ -21,10 +21,10 @@
   ],
   "repository": "benkroeger/loopback-component-auth",
   "dependencies": {
-    "lodash": "^4.10.0",
+    "lodash": "^4.11.1",
     "loopback-component-passport": "^2.1.0",
-    "oniyi-logger": "^0.4.2",
     "oniyi-config": "^0.0.1",
+    "oniyi-logger": "^0.4.2",
     "passport": "^0.3.2"
   },
   "peerDependencies": {
@@ -32,7 +32,7 @@
     "cookie-parser": "^1.4.1"
   },
   "devDependencies": {
-    "eslint": "^2.7.0",
+    "eslint": "^2.8.0",
     "eslint-config-oniyi": "^2.0.2",
     "gulp": "^3.9.1",
     "gulp-eslint": "^2.0.0",
