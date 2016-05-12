@@ -59,6 +59,9 @@ Sample load order:
 - options.models.userIdentityModel(String | Model)
 - options.models.userCredentialModel(String | Model)
 - options.models.accessTokenModel(String | Model)
+- options.contextRoot (String)
+- options.serverBaseUrl (String)
+- options.uiBaseUrl (String)
 
 ## Provideroptions
 - disabled (boolean) - default: false; when set to `true`, provider will not be registered
