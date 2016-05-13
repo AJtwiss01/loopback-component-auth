@@ -1,0 +1,67 @@
+{
+  "name": "AuthProvider",
+  "description": "Authentication providers for sign-in and linking user accounts",
+  "plural": "AuthProviders",
+  "base": "Model",
+  "http": {
+    "path": "/auth/providers"
+  },
+  "strict": false,
+  "options": {
+    "idInjection": false,
+    "validateUpsert": false,
+    "transient": {}
+  },
+  "properties": {
+    "name": {
+      "type": "String",
+      "required": true,
+      "id": true,
+      "description": "Name used to identify an authentication provider"
+    },
+    "module": {
+      "type": "String",
+      "required": true,
+      "description": "Node module that exports the required `passport` strategy"
+    },
+    "strategy": {
+      "type": "String",
+      "default": "Strategy",
+      "description": "Name of the `passport` strategy exported by `module`"
+    },
+    "authScheme": {
+      "type": "String",
+      "required": true,
+      "description": ["The authentication scheme you want to use.",
+        "This can either be one of the schemes supported by `loopback-component-passport`",
+        "or a custom scheme defined in your `<appRootDir>/authentication`"
+      ]
+    },
+    "link": {
+      "type": "Boolean",
+      "default": false,
+      "description": "Is this authentication provider used for sign-in or to be linked to an existing (authenticated) account"
+    },
+    "json": {
+      "type": "Boolean",
+      "default": false,
+      "description": "When set to `true`, this provider responds with `json` data instead of redirects to `successRedirectUrl` and `failureRedirectUrl`"
+    },
+    "session": {
+      "type": "Boolean",
+      "default": false,
+      "description": "When set to `true`, uses `express` sessions to remember the originally requested url"
+    },
+    "disabled": {
+      "type": "Boolean",
+      "default": true,
+      "description": "When set to `true`, this provider is not loaded / enabled"
+    }
+  },
+  "hidden": ["clientID", "clientSecret"],
+  "relations": {},
+  "acls": [],
+  "scopes": {},
+  "scope": {},
+  "indexes": {}
+}
