@@ -34,6 +34,10 @@
       "default": "Strategy",
       "description": "Name of the `passport` strategy exported by `module`"
     },
+    "strategyOptions": {
+      "type": "AuthStrategyOptions",
+      "description": "Define options for `strategy` in an objet literal"
+    },
     "authScheme": {
       "type": "String",
       "required": true,
@@ -42,7 +46,7 @@
         "or a custom scheme defined in your `<appRootDir>/authentication`"
       ]
     },
-    "authSchemeOptions": {
+    "schemeOptions": {
       "type": "AuthSchemeOptions",
       "description": "Define options for `authScheme` in an object literal"
     },

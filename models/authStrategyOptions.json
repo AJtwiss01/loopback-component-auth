@@ -11,15 +11,16 @@
     "transient": {}
   },
   "properties": {
+    "id": false,
     "clientID": {
       "type": "String",
       "required": false,
-      "description": "ClientID used for e.g. `oauth 2.0` or `openid connect` strategies"
+      "description": "ClientID used e.g. for `oauth 2.0` or `openid connect` strategies"
     },
     "clientSecret": {
       "type": "String",
       "required": false,
-      "description": "ClientSecret used for e.g. `oauth 2.0` or `openid connect` strategies"
+      "description": "ClientSecret used e.g. for `oauth 2.0` or `openid connect` strategies"
     }
   },
   "hidden": [],
