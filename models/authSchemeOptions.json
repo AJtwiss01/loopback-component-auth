@@ -1,0 +1,31 @@
+{
+  "name": "AuthSchemeOptions",
+  "description": "Options for authSchemes",
+  "plural": "AuthSchemeOptions",
+  "base": "Model",
+  "http": {},
+  "strict": false,
+  "options": {
+    "idInjection": false,
+    "validateUpsert": false,
+    "transient": {}
+  },
+  "properties": {
+    "isEmailOptional": {
+      "type": "Boolean",
+      "default": true,
+      "description": "when set to `true`, authScheme will not fail parsing profiles without `email`"
+    },
+    "credentialDefaults": {
+      "type": "Object",
+      "required": false,
+      "description": "default values used when composing `credentials` with a custom `AuthScheme`"
+    }
+  },
+  "hidden": [],
+  "relations": {},
+  "acls": [],
+  "scopes": {},
+  "scope": {},
+  "indexes": {}
+}

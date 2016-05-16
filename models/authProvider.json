@@ -19,10 +19,15 @@
       "id": true,
       "description": "Name used to identify an authentication provider"
     },
+    "disabled": {
+      "type": "Boolean",
+      "default": true,
+      "description": "When set to `true`, this provider is not loaded / enabled"
+    },
     "module": {
       "type": "String",
       "required": true,
-      "description": "Node module that exports the required `passport` strategy"
+      "description": "`name` or `path` of node module that exports the required `passport` strategy. Must be resolveable with `require`"
     },
     "strategy": {
       "type": "String",
@@ -36,6 +41,30 @@
         "This can either be one of the schemes supported by `loopback-component-passport`",
         "or a custom scheme defined in your `<appRootDir>/authentication`"
       ]
+    },
+    "authSchemeOptions": {
+      "type": "AuthSchemeOptions",
+      "description": "Define options for `authScheme` in an object literal"
+    },
+    "authHTTPMethod": {
+      "type": "String",
+      "default": "GET",
+      "description": "HTTP method used to invoke authentication on `authPath`. Must be one of ['GET', 'POST']"
+    },
+    "authBodyParser": {
+      "type": "String",
+      "required": false,
+      "description": [
+        "Name of the `express body-parser` used to parse the `body` portion of `http.IncomingMessage`",
+        "on `authPath`. The body-parser middleware is resolved from `loopback.bodyParser` and added immediately",
+        "befor `authMiddleware` or `passport.authorize()` for `link` providers respectively"
+      ]
+    },
+    "authBodyParserOptions": {
+      "type": "Object",
+      "required": false,
+      "default": "{extended: true}",
+      "description": "options passed to `authBodyParser` on creation"
     },
     "link": {
       "type": "Boolean",
@@ -51,11 +80,6 @@
       "type": "Boolean",
       "default": false,
       "description": "When set to `true`, uses `express` sessions to remember the originally requested url"
-    },
-    "disabled": {
-      "type": "Boolean",
-      "default": true,
-      "description": "When set to `true`, this provider is not loaded / enabled"
     }
   },
   "hidden": ["clientID", "clientSecret"],

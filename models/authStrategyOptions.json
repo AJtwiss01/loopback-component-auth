@@ -1,0 +1,31 @@
+{
+  "name": "AuthStrategyOptions",
+  "description": "Options for authStrategies that are not covered in `AuthProvider` main propeties",
+  "plural": "AuthStrategyOptions",
+  "base": "Model",
+  "http": {},
+  "strict": false,
+  "options": {
+    "idInjection": false,
+    "validateUpsert": false,
+    "transient": {}
+  },
+  "properties": {
+    "clientID": {
+      "type": "String",
+      "required": false,
+      "description": "ClientID used for e.g. `oauth 2.0` or `openid connect` strategies"
+    },
+    "clientSecret": {
+      "type": "String",
+      "required": false,
+      "description": "ClientSecret used for e.g. `oauth 2.0` or `openid connect` strategies"
+    }
+  },
+  "hidden": [],
+  "relations": {},
+  "acls": [],
+  "scopes": {},
+  "scope": {},
+  "indexes": {}
+}

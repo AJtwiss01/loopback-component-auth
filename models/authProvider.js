@@ -1,5 +1,6 @@
 'use strict';
 
+const logger = require('../lib/logger');
 const providerRegistry = require('../lib/provider-registry');
 
 function modelCustomizer(Model) {
@@ -9,9 +10,10 @@ function modelCustomizer(Model) {
 
     /* eslint-disable no-param-reassign */
     Model.find = function find(filter, callback) {
+      logger.warn('`AuthProvider.find()` method has no filter methods implemented');
       // @TODO: read user's roles and decide weather to show clientSecret and clientID
       // or even make it more generic: read list of "protected" properties from provider config
-      // and remove othose from response list
+      // and remove those from response list
       return callback(null, providerRegistry.list());
     };
 
