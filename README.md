@@ -61,7 +61,7 @@ Sample load order:
 - options.models.accessTokenModel(String | Model)
 - options.contextRoot (String)
 - options.serverBaseUrl (String)
-- options.uiBaseUrl (String)
+- options.frontendBaseUrl (String)
 
 ## Provideroptions
 - disabled (boolean) - default: false; when set to `true`, provider will not be registered
@@ -80,9 +80,10 @@ Sample load order:
 - callbackBodyParser (string) - required when `callbackHTTPMethod === 'POST'`, must be one the parsers provided by `body-parser` module
 - callbackBodyParserOptions (object) - optional; passed to `bodyParser['callbackBodyParser'](callbackBodyParserOptions)`
 - callbackMiddleware
+- callbackURL is generated from `serverBaseUrl` and `callbackPath` (which itself is generated). If you need secure `callbackURL` values (`https://...`), you must set ´serverBaseUrl` to a secure url, too.
 
-- successRedirect
-- failureRedirect
+- successRedirect (generated for non-json providers only, uses frontendBaseUrl as base url)
+- failureRedirect (generated for non-json providers only, uses frontendBaseUrl as base url)
 - makeLoginCallback (function) - receives single argument of type `function` (the "done" handler from passport's verify function).
 Must return function that takes (err, user, identity, token) as arguments and finally calls
 done(err, user, authInfo) according to the passport documentation.
