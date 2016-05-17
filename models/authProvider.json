@@ -50,26 +50,6 @@
       "type": "AuthSchemeOptions",
       "description": "Define options for `authScheme` in an object literal"
     },
-    "authHTTPMethod": {
-      "type": "String",
-      "default": "GET",
-      "description": "HTTP method used to invoke authentication on `authPath`. Must be one of ['GET', 'POST']"
-    },
-    "authBodyParser": {
-      "type": "String",
-      "required": false,
-      "description": [
-        "Name of the `express body-parser` used to parse the `body` portion of `http.IncomingMessage`",
-        "on `authPath`. The body-parser middleware is resolved from `loopback.bodyParser` and added immediately",
-        "befor `authMiddleware` or `passport.authorize()` for `link` providers respectively"
-      ]
-    },
-    "authBodyParserOptions": {
-      "type": "Object",
-      "required": false,
-      "default": "{extended: true}",
-      "description": "options passed to `authBodyParser` on creation"
-    },
     "link": {
       "type": "Boolean",
       "default": false,
@@ -84,6 +64,81 @@
       "type": "Boolean",
       "default": false,
       "description": "When set to `true`, uses `express` sessions to remember the originally requested url"
+    },
+    "makeLoginCallback": {
+      "type": "any",
+      "required": false,
+      "description": [
+        "Actual type is `function` and must be set programmatically.",
+        "`loopback-component-auth` uses this property to allow a custom auth scheme to provide",
+        "their own `loginCallback` function which is later passed to `authScheme.makeVerifyFunction`"
+      ]
+    },
+    "routeOptions": {
+      "auth": {
+        "method": {
+          "type": "String",
+          "default": "GET",
+          "description": "HTTP method used to invoke authentication on `routeOptions.auth.path`. Must be one of ['GET', 'POST']"
+        },
+        "bodyParser": {
+          "type": "String",
+          "required": false,
+          "description": [
+            "Name of the `express body-parser` used to parse the `body` portion of `http.IncomingMessage`",
+            "on `routeOptions.auth.path`. The body-parser middleware is resolved from `loopback.bodyParser` and added immediately",
+            "befor `routeOptions.auth.middleware` or `passport.authorize()` for `link` providers respectively"
+          ]
+        },
+        "bodyParserOptions": {
+          "type": "Object",
+          "required": false,
+          "default": { "extended": true },
+          "description": "options passed to `routeOptions.auth.bodyParser` on creation"
+        },
+        "middleware": {
+          "type": "any",
+          "required": false,
+          "description": [
+            "Actual type is `function` and must be set programmatically. Function signature must be compatible",
+            "with `express` middleware.",
+            "`loopback-component-auth` uses this middleware to handle requests to a non-link provider's `authPath`.",
+            "When no middleware is provided, `loopback-component-auth` uses a default middleware that initlaizies an OAuth 2.0 flow."
+          ]
+        }
+      },
+      "callback": {
+        "method": {
+          "type": "String",
+          "default": "GET",
+          "description": "HTTP method used to invoke authentication on `authPath`. Must be one of ['GET', 'POST']"
+        },
+        "bodyParser": {
+          "type": "String",
+          "required": false,
+          "description": [
+            "Name of the `express body-parser` used to parse the `body` portion of `http.IncomingMessage`",
+            "on `authPath`. The body-parser middleware is resolved from `loopback.bodyParser` and added immediately",
+            "befor `authMiddleware` or `passport.authorize()` for `link` providers respectively"
+          ]
+        },
+        "bodyParserOptions": {
+          "type": "Object",
+          "required": false,
+          "default": { "extended": true },
+          "description": "options passed to `authBodyParser` on creation"
+        },
+        "middleware": {
+          "type": "any",
+          "required": false,
+          "description": [
+            "Actual type is `function` and must be set programmatically. Function signature must be compatible",
+            "with `express` middleware.",
+            "`loopback-component-auth` uses this middleware to handle requests to a non-link provider's `authPath`.",
+            "When no middleware is provided, `loopback-component-auth` uses a default middleware that initlaizies an OAuth 2.0 flow."
+          ]
+        }
+      }
     }
   },
   "hidden": ["clientID", "clientSecret"],

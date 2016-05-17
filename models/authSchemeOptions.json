@@ -21,26 +21,6 @@
       "type": "Object",
       "required": false,
       "description": "default values used when composing `credentials` with a custom `AuthScheme`"
-    },
-    "callbackHTTPMethod": {
-      "type": "String",
-      "default": "GET",
-      "description": "HTTP method used to invoke authentication on `authPath`. Must be one of ['GET', 'POST']"
-    },
-    "callbackBodyParser": {
-      "type": "String",
-      "required": false,
-      "description": [
-        "Name of the `express body-parser` used to parse the `body` portion of `http.IncomingMessage`",
-        "on `authPath`. The body-parser middleware is resolved from `loopback.bodyParser` and added immediately",
-        "befor `authMiddleware` or `passport.authorize()` for `link` providers respectively"
-      ]
-    },
-    "callbackBodyParserOptions": {
-      "type": "Object",
-      "required": false,
-      "default": { "extended": true },
-      "description": "options passed to `authBodyParser` on creation"
     }
   },
   "hidden": [],
