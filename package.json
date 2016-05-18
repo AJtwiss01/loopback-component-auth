@@ -1,6 +1,6 @@
 {
   "name": "loopback-component-auth",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Extends loopback-component-passport to support custom auth schemes (i.e. other than the supported 'ldap', 'local', 'oauth', 'oauth1', 'oauth 1.0', 'openid', 'openid connect' and 'oauth 2.0')",
   "homepage": "",
   "author": {
