@@ -1,6 +1,6 @@
 {
   "name": "AuthProvider",
-  "description": "Authentication providers for sign-in and linking user accounts",
+  "description": "Authentication providers for login and user account linking",
   "plural": "AuthProviders",
   "base": "Model",
   "http": {
@@ -13,135 +13,61 @@
     "transient": {}
   },
   "properties": {
+    "id": false,
+    "disabled": {
+      "type": "Boolean",
+      "default": false,
+      "description": "Indicates if an authentication provider is mounted / loaded"
+    },
     "name": {
       "type": "String",
-      "required": true,
       "id": true,
       "description": "Name used to identify an authentication provider"
     },
-    "disabled": {
-      "type": "Boolean",
-      "default": true,
-      "description": "When set to `true`, this provider is not loaded / enabled"
-    },
-    "module": {
+    "authPath": {
       "type": "String",
-      "required": true,
-      "description": "`name` or `path` of node module that exports the required `passport` strategy. Must be resolveable with `require`"
+      "description": "HTTP `path` where this provider handles authentication requests"
     },
-    "strategy": {
+    "authMethod": {
       "type": "String",
-      "default": "Strategy",
-      "description": "Name of the `passport` strategy exported by `module`"
+      "description": "HTTP `method` supported by this provider to handle authentication requests"
     },
-    "strategyOptions": {
-      "type": "AuthStrategyOptions",
-      "description": "Define options for `strategy` in an objet literal"
-    },
-    "authScheme": {
+    "authBodyFormat": {
       "type": "String",
-      "required": true,
-      "description": ["The authentication scheme you want to use.",
-        "This can either be one of the schemes supported by `loopback-component-passport`",
-        "or a custom scheme defined in your `<appRootDir>/authentication`"
-      ]
-    },
-    "schemeOptions": {
-      "type": "AuthSchemeOptions",
-      "description": "Define options for `authScheme` in an object literal"
+      "description": "HTTP `body` format supported by this provider when `authMethod` is neither 'GET' nor 'HEAD'"
     },
     "link": {
       "type": "Boolean",
-      "default": false,
       "description": "Is this authentication provider used for sign-in or to be linked to an existing (authenticated) account"
     },
-    "json": {
-      "type": "Boolean",
-      "default": false,
-      "description": "When set to `true`, this provider responds with `json` data instead of redirects to `successRedirectUrl` and `failureRedirectUrl`"
-    },
-    "session": {
-      "type": "Boolean",
-      "default": false,
-      "description": "When set to `true`, uses `express` sessions to remember the originally requested url"
-    },
-    "makeLoginCallback": {
-      "type": "any",
-      "required": false,
+    "responseType": {
+      "type": "String",
+      "enum": ["json", "redirect"],
       "description": [
-        "Actual type is `function` and must be set programmatically.",
-        "`loopback-component-auth` uses this property to allow a custom auth scheme to provide",
-        "their own `loginCallback` function which is later passed to `authScheme.makeVerifyFunction`"
+        "Indicates how the authentication provider will respond to an authentication request.",
+        "responseType === `json` will send `json` formatted authentication result in final response body",
+        "(Since some `authScheme` involve multi-step authentication flows with redirects, the `json` result",
+        "is sent as response to the **final** target)",
+        "responseType === `redirect` will redirect the client to targets defined in `successRedirectUrl`",
+        "or `failureRedirectUrl` depending on the authentication result"
       ]
     },
-    "routeOptions": {
-      "auth": {
-        "method": {
-          "type": "String",
-          "default": "GET",
-          "description": "HTTP method used to invoke authentication on `routeOptions.auth.path`. Must be one of ['GET', 'POST']"
-        },
-        "bodyParser": {
-          "type": "String",
-          "required": false,
-          "description": [
-            "Name of the `express body-parser` used to parse the `body` portion of `http.IncomingMessage`",
-            "on `routeOptions.auth.path`. The body-parser middleware is resolved from `loopback.bodyParser` and added immediately",
-            "befor `routeOptions.auth.middleware` or `passport.authorize()` for `link` providers respectively"
-          ]
-        },
-        "bodyParserOptions": {
-          "type": "Object",
-          "required": false,
-          "default": { "extended": true },
-          "description": "options passed to `routeOptions.auth.bodyParser` on creation"
-        },
-        "middleware": {
-          "type": "any",
-          "required": false,
-          "description": [
-            "Actual type is `function` and must be set programmatically. Function signature must be compatible",
-            "with `express` middleware.",
-            "`loopback-component-auth` uses this middleware to handle requests to a non-link provider's `authPath`.",
-            "When no middleware is provided, `loopback-component-auth` uses a default middleware that initlaizies an OAuth 2.0 flow."
-          ]
-        }
-      },
-      "callback": {
-        "method": {
-          "type": "String",
-          "default": "GET",
-          "description": "HTTP method used to invoke authentication on `authPath`. Must be one of ['GET', 'POST']"
-        },
-        "bodyParser": {
-          "type": "String",
-          "required": false,
-          "description": [
-            "Name of the `express body-parser` used to parse the `body` portion of `http.IncomingMessage`",
-            "on `authPath`. The body-parser middleware is resolved from `loopback.bodyParser` and added immediately",
-            "befor `authMiddleware` or `passport.authorize()` for `link` providers respectively"
-          ]
-        },
-        "bodyParserOptions": {
-          "type": "Object",
-          "required": false,
-          "default": { "extended": true },
-          "description": "options passed to `authBodyParser` on creation"
-        },
-        "middleware": {
-          "type": "any",
-          "required": false,
-          "description": [
-            "Actual type is `function` and must be set programmatically. Function signature must be compatible",
-            "with `express` middleware.",
-            "`loopback-component-auth` uses this middleware to handle requests to a non-link provider's `authPath`.",
-            "When no middleware is provided, `loopback-component-auth` uses a default middleware that initlaizies an OAuth 2.0 flow."
-          ]
-        }
-      }
+    "successRedirectUrl": {
+      "type": "String",
+      "description": [
+        "target url the client is redirected to upon successful authentication request.",
+        "**only relevant when** `responseType === 'redirect'`"
+      ]
+    },
+    "failureRedirectUrl": {
+      "type": "String",
+     "description": [
+        "target url the client is redirected to upon failed authentication request.",
+        "**only relevant when** `responseType === 'redirect'`"
+      ]
     }
   },
-  "hidden": ["clientID", "clientSecret"],
+  "hidden": [],
   "relations": {},
   "acls": [],
   "scopes": {},
