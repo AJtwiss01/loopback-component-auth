@@ -1,0 +1,76 @@
+{
+  "name": "AuthProvider",
+  "description": "Authentication providers for login and user account linking",
+  "plural": "AuthProviders",
+  "base": "Model",
+  "http": {
+    "path": "/auth/providers"
+  },
+  "strict": false,
+  "options": {
+    "idInjection": false,
+    "validateUpsert": false,
+    "transient": {}
+  },
+  "properties": {
+    "id": false,
+    "disabled": {
+      "type": "Boolean",
+      "default": false,
+      "description": "Indicates if an authentication provider is mounted / loaded"
+    },
+    "name": {
+      "type": "String",
+      "id": true,
+      "description": "Name used to identify an authentication provider"
+    },
+    "authPath": {
+      "type": "String",
+      "description": "HTTP `path` where this provider handles authentication requests"
+    },
+    "authMethod": {
+      "type": "String",
+      "description": "HTTP `method` supported by this provider to handle authentication requests"
+    },
+    "authBodyFormat": {
+      "type": "String",
+      "description": "HTTP `body` format supported by this provider when `authMethod` is neither 'GET' nor 'HEAD'"
+    },
+    "link": {
+      "type": "Boolean",
+      "description": "Is this authentication provider used for sign-in or to be linked to an existing (authenticated) account"
+    },
+    "responseType": {
+      "type": "String",
+      "enum": ["json", "redirect"],
+      "description": [
+        "Indicates how the authentication provider will respond to an authentication request.",
+        "responseType === `json` will send `json` formatted authentication result in final response body",
+        "(Since some `authScheme` involve multi-step authentication flows with redirects, the `json` result",
+        "is sent as response to the **final** target)",
+        "responseType === `redirect` will redirect the client to targets defined in `successRedirectUrl`",
+        "or `failureRedirectUrl` depending on the authentication result"
+      ]
+    },
+    "successRedirectUrl": {
+      "type": "String",
+      "description": [
+        "target url the client is redirected to upon successful authentication request.",
+        "**only relevant when** `responseType === 'redirect'`"
+      ]
+    },
+    "failureRedirectUrl": {
+      "type": "String",
+     "description": [
+        "target url the client is redirected to upon failed authentication request.",
+        "**only relevant when** `responseType === 'redirect'`"
+      ]
+    }
+  },
+  "hidden": [],
+  "relations": {},
+  "acls": [],
+  "scopes": {},
+  "scope": {},
+  "indexes": {}
+}

@@ -9,7 +9,8 @@
     "url": ""
   },
   "files": [
-    "lib"
+    "lib",
+    "models"
   ],
   "main": "lib/index.js",
   "keywords": [
